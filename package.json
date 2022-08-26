@@ -1,0 +1,9 @@
+{
+  "name": "desabangkit-backend-dummy",
+  "version": "0.0.1",
+  "description": "Backend Dummy for DesaBangkit Apps",
+  "main": "index.js",
+  "author": "GameChangerCorp",
+  "license": "MIT",
+  "repository": ""
+}

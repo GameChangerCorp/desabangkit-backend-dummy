@@ -13,13 +13,13 @@ export default class ProductHandler {
   async getAllProductsHandler (req: Request, res: Response): Promise<Response> {
     const { categoryId } = req.query as { categoryId?: string }
     const useCase: ProductUseCase = this._container.getInstance(ProductUseCase.name)
-    const productCategories = await useCase.getAllProducts(categoryId)
+    const products = await useCase.getAllProducts(categoryId)
 
     return res.json({
       code: 200,
       message: 'success',
       data: {
-        productCategories
+        products
       }
     })
   }

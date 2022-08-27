@@ -3,6 +3,8 @@ import ProductCategoryRepo from './repositories/ProductCategoryRepo'
 import ProductCategoryUseCase from '../Application/usecases/ProductCategoryUseCase'
 import ProductRepo from './repositories/ProductRepo'
 import ProductUseCase from '../Application/usecases/ProductUseCase'
+import CooperationRepo from './repositories/CooperationRepo'
+import CooperationUseCase from '../Application/usecases/CooperationUseCase'
 
 const Container = createContainer()
 Container.register([
@@ -13,6 +15,10 @@ Container.register([
   {
     key: ProductRepo.name,
     Class: ProductRepo
+  },
+  {
+    key: CooperationRepo.name,
+    Class: CooperationRepo
   }
 ])
 
@@ -35,6 +41,17 @@ Container.register([
       dependencies: [
         {
           internal: ProductRepo.name
+        }
+      ]
+    }
+  },
+  {
+    key: CooperationUseCase.name,
+    Class: CooperationUseCase,
+    parameter: {
+      dependencies: [
+        {
+          internal: CooperationRepo.name
         }
       ]
     }

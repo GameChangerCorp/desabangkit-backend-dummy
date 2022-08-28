@@ -35,6 +35,10 @@ const productSchema = new mongoose.Schema({
   price: {
     type: String,
     required: true
+  },
+  photoUrl: {
+    type: String,
+    required: true
   }
 }, {
   timestamps: { createdAt: 'createdAt', updatedAt: 'lastUpdated' }

@@ -11,14 +11,15 @@ export default class ProductRepo implements IProductRepo {
     if (categoryId !== undefined) filter = { 'category.id': categoryId }
 
     const products = await ProductModel.find(filter)
-    return products.map(({ id, sku, category, name, unit, price }) => {
+    return products.map(({ id, sku, category, name, unit, price, photoUrl }) => {
       const productCategory = ProductCategory.create({ name: category.name }, UniqueEntityId.create(category.id))
       const product = Product.create({
         sku,
         category: productCategory,
         name,
         unit,
-        price
+        price,
+        photoUrl
       }, UniqueEntityId.create(id))
       return ProductMapper.toDto(product)
     })

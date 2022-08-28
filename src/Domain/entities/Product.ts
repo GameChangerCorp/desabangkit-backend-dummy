@@ -8,6 +8,7 @@ interface ProductProps {
   name: string
   unit: string
   price: string
+  photoUrl: string
 };
 
 export default class Product extends Entity<ProductProps> {
@@ -16,16 +17,18 @@ export default class Product extends Entity<ProductProps> {
   private readonly _name: string
   private readonly _unit: string
   private readonly _price: string
+  private readonly _photoUrl: string
 
   private constructor (props: ProductProps, id?: UniqueEntityId) {
     super(props, id)
 
-    const { sku, category, name, unit, price } = props
+    const { sku, category, name, unit, price, photoUrl } = props
     this._sku = sku
     this._category = category
     this._name = name
     this._unit = unit
     this._price = price
+    this._photoUrl = photoUrl
   }
 
   static create (props: ProductProps, id?: UniqueEntityId): Product {
@@ -50,5 +53,9 @@ export default class Product extends Entity<ProductProps> {
 
   get price (): string {
     return this._price
+  }
+
+  get photoUrl (): string {
+    return this._photoUrl
   }
 }
